@@ -5,6 +5,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'transnet',
+    // __dangerouslyDisableSanitizers: ['script'],
     htmlAttrs: {
       lang: 'en'
     },
@@ -15,12 +16,53 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        href: "http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800",
+        rel: "stylesheet",
+        type: "text/css"
+      },
+      {
+        href: "http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,800,700,600",
+        rel: "stylesheet",
+        type: "text/css"
+      },
+      {
+        rel: "stylesheet",
+        href: "/icon-fonts/font-awesome-4.3.0/css/font-awesome.min.css"
+      },
+      {
+        rel: "stylesheet",
+        href: "/assets/css/styleswitcher.css"
+      },
+      {
+        rel: "stylesheet",
+        href: "/assets/css/style.css"
+      }
+    ],
+    script: [
+      {src: "/js/jquery214.js"},
+      {src: "/js/jqueryscripts.js"},
+      { src: '/js/bootstrap.js' },
+      { src: '/js/owl-carousel/owlcarousel.js' }, 
+      { src: '/js/masterslider/masterslider.js' },
+      { src: '/js/jquerymatch.js' },
+      { src: '/js/jquerydlmenu.js' },
+      // { src: '/js/style-switcher/styleswitcher.js' },
+      // { src: '/js/include.js' },
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/css/bootstrap.css',
+    '~/assets/css/style.css',
+    '~/assets/css/animate.css',
+    '~/assets/css/color-default',
+    '~/assets/css/retina.css',
+    '~/assets/css/responsive.css',
+    '~/assets/css/style.css',
+    '~/assets/css/styleSwitcher.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -32,12 +74,14 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxt/components'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    'nuxt-agile',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
