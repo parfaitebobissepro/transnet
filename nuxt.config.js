@@ -82,6 +82,10 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     'nuxt-agile',
+    ['nuxt-gmaps', {
+      key: 'AIzaSyDQPH1XsYNQ6MbXv6OsRT_L4lZmfA4euzM',
+      //you can use libraries: ['places']
+    }]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

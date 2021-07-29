@@ -4,21 +4,18 @@
     <main>
       <Nuxt />
     </main>
-    <FOOTER></FOOTER>
   </div>
 </template>
 
 <script>
 
 import Vue from "vue";
-import FOOTER from "../components/footer.vue";
 import HEADERFO from "../components/headerFo.vue";
 
 export default {
-  name:'LayoutFront',
+  name:'frontLayoutNoFooter',
   components: {
       HEADERFO,
-      FOOTER,
   },
 }
 </script>

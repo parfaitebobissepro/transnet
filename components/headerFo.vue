@@ -239,7 +239,7 @@
 </template>
 <script>
 export default {
-    name:'headerFo',
+    name:'HEADERFO',
     mounted() {
         (jQuery)(function ($) {
           // MAIN NAVIGATION
@@ -563,6 +563,15 @@ export default {
     .navbar-nav {
         display: none !important;
     }
+    .navbar{
+        justify-content: center;
+    }
+
+    .logo img{
+        margin-bottom: 0;
+    }
+  }
+
   }
 
   .navbar-header{
@@ -572,5 +581,18 @@ export default {
   .navbar-default .navbar-collapse, .navbar-default .navbar-form{
     display: block;
   }
-}
+
+    @media (max-width: 768px){
+        .dl-menuwrapper{
+            display: block !important;
+        }
+
+    }
+
+</style>
+<style>
+    .container-fluid.maxx {
+        padding-left: 0px;
+        padding-right: 0px; 
+    }
 </style>
