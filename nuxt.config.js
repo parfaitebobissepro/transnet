@@ -31,10 +31,10 @@ export default {
         rel: "stylesheet",
         href: "/icon-fonts/font-awesome-4.3.0/css/font-awesome.min.css"
       },
-      {
-        rel: "stylesheet",
-        href: "/assets/css/styleswitcher.css"
-      },
+      // {
+      //   rel: "stylesheet",
+      //   href: "/assets/css/styleswitcher.css"
+      // },
       {
         rel: "stylesheet",
         href: "/assets/css/style.css"
@@ -73,7 +73,7 @@ export default {
     '~/assets/css/retina.css',
     '~/assets/css/responsive.css',
     '~/assets/css/style.css',
-    '~/assets/css/styleSwitcher.css',
+    // '~/assets/css/styleSwitcher.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
