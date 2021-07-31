@@ -1,142 +1,95 @@
 <template>   
         <div>
             <div class="slider-header">
-                <agile :autoplay="true" :fade="false" :navButtons="false" :swipeDistance="100" :timing="ease" :rtl="false" :dots="false">
-                    <!-- first slide -->
-                    <!-- <div class="slide">
-                        <img class="ms-layer" src="/img/unsplash/christopher-paul-high-O8dcG8oniJU-unsplash.jpg" alt=""
-                            style="left: 0; top: 310px;"
-                            data-type="image" 
-                            data-effect="left(short)" 
-                            data-duration="300"
-                            data-hide-effect="fade" 
-                            data-delay="0" 
-                            /> 
-
-                        <h2 class="ms-layer pi-caption01" 
-                            style="left: 0; top: 340px;" 
-                            data-type="text" 
-                            data-effect="left(short)" 
-                            data-duration="300"
-                            data-hide-effect="fade" 
-                            data-delay="300" 
-                            >
-                            strongest
-                        </h2>
-
-                        <h2 class="ms-layer pi-caption01" 
-                            style="left: 0; top: 400px;" 
-                            data-type="text"
-                            data-effect="left(short)" 
-                            data-duration="300"
-                            data-hide-effect="fade" 
-                            data-delay="600" 
-                            >
-                            distribution
-                        </h2>
-
-                        <h2 class="ms-layer pi-caption01" 
-                            style="left: 0; top: 460px;" 
-                            data-type="text"
-                            data-effect="left(short)" 
-                            data-duration="300"
-                            data-hide-effect="fade" 
-                            data-delay="900" 
-                            >
-                            network
-                        </h2>
-                    </div> -->
-                    <!-- .slide end -->
-
-                    <!-- slide 02 start -->
+                  <!-- <agile :nav-buttons="false" :autoplay-speed="7000" :speed="2500" fade="fade" pause-on-hover="pause-on-hover" autoplay="autoplay" v-if="slides != null">
+                        <div class="slide" v-for="(slide,index) in slides" :key="index" :style="'background-image: url('+$axios.defaults.baseURL + slide.image+');box-shadow: inset 0 0 0 2000px rgb(6 48 66 / 35%);'">
+                        <div style="display: flex;flex-direction: column;">
+                            <h1 class="title-slider">{{ $i18n.locale == 'fr' ? slide.titre : slide.titre_en }}</h1>
+                            <h3 class="desc-slider">{{ $i18n.locale == 'fr' ? slide.desc : slide.desc_en }}</h3>
+                        </div>
+                        </div>
+                    </agile> -->
+                <agile :nav-buttons="false" :autoplay-speed="7000" :speed="2500" fade="fade" pause-on-hover="pause-on-hover" autoplay="autoplay">
                     <div class="slide">
-                        <!-- slide background -->
-                        <img src="/img/unsplash/mak-fVDOn6sXWps-unsplash.jpg" alt="International Air freight"/> 
+                        <div class="container-text-slide">
+                            <!-- slide background -->
+                            <img src="/img/unsplash/mak-fVDOn6sXWps-unsplash.jpg" alt="International Air freight"/> 
 
-                        <h2 class="ms-layer pi-caption01" 
-                            style="left: 58px; top: 390px;" 
+                            <h2 class="ms-layer pi-caption01 title-slider" 
+                                style="left: 58px; top: 390px;" 
+                                data-type="text" 
+                                data-effect="top(short)" 
+                                data-duration="300"
+                                data-hide-effect="fade" 
+                                data-delay="0" 
+                                >
+                                International Air Freight
+                            </h2>
+                            <p class="ms-layer pi-text"
+                            style="left: 375px; top: 470px;"
                             data-type="text" 
                             data-effect="top(short)" 
                             data-duration="300"
                             data-hide-effect="fade" 
-                            data-delay="0" 
+                            data-delay="600"      
                             >
-                            International Air Freight
-                        </h2>
-                        <p class="ms-layer pi-text"
-                        style="left: 375px; top: 470px;"
-                        data-type="text" 
-                        data-effect="top(short)" 
-                        data-duration="300"
-                        data-hide-effect="fade" 
-                        data-delay="600"      
-                        >
-                            Fast International Air Delivery
-                        </p>
+                                Fast International Air Delivery
+                            </p>
+                        </div>
                     </div><!-- .slide end -->
 
                     <!-- slide 03 start -->
                     <div class="slide">
                         <!-- slide background -->
-                        <img src="/img/unsplash/pascal-meier-HfYk04kY0ZQ-unsplash.jpg" alt="Worldwide freight services"/> 
-
-                        <h2 class="ms-layer pi-caption01" 
-                            style="left: 258px; top: 390px;" 
+                        <div class="container-text-slide">
+                            <img src="/img/unsplash/pascal-meier-HfYk04kY0ZQ-unsplash.jpg" alt="Worldwide freight services"/>
+                            <h2 class="ms-layer pi-caption01 title-slider" 
+                                style="left: 58px; top: 390px;" 
+                                data-type="text" 
+                                data-effect="top(short)" 
+                                data-duration="300"
+                                data-hide-effect="fade" 
+                                data-delay="0" 
+                                >
+                                International Air Freight
+                            </h2>
+                            <p class="ms-layer pi-text"
+                            style="left: 375px; top: 470px;"
                             data-type="text" 
                             data-effect="top(short)" 
                             data-duration="300"
                             data-hide-effect="fade" 
-                            data-delay="0" 
+                            data-delay="600"      
                             >
-                            Freight services
-                        </h2>
-                        <p class="ms-layer pi-text"
-                        style="left: 278px; top: 470px;"
-                        data-type="text" 
-                        data-effect="top(short)" 
-                        data-duration="300"
-                        data-hide-effect="fade" 
-                        data-delay="600"      
-                        >
-                            Road, air, train or overseas. We got it covered!
-                        </p>
-                    </div><!-- .slide slide03 end -->
-
+                                Fast International Air Delivery
+                            </p>
+                        </div>
+                    </div>
                     <!-- slide 04 start -->
                     <div class="slide">
-                        <!-- slide background -->
-                        <img src="/img/unsplash/bernd-dittrich-eCc7FjMoR74-unsplash.jpg"  alt="Worldwide freight services"/> 
-
-                        <h2 class="ms-layer pi-caption01" 
-                            style="left: 388px; top: 390px;" 
+                        <div class="container-text-slide">
+                            <img src="/img/unsplash/bernd-dittrich-eCc7FjMoR74-unsplash.jpg"  alt="Worldwide freight services"/>
+                            <h2 class="ms-layer pi-caption01 title-slider" 
+                                style="left: 58px; top: 390px;" 
+                                data-type="text" 
+                                data-effect="top(short)" 
+                                data-duration="300"
+                                data-hide-effect="fade" 
+                                data-delay="0" 
+                                >
+                                International Air Freight
+                            </h2>
+                            <p class="ms-layer pi-text"
+                            style="left: 375px; top: 470px;"
                             data-type="text" 
                             data-effect="top(short)" 
                             data-duration="300"
                             data-hide-effect="fade" 
-                            data-delay="00" 
+                            data-delay="600"      
                             >
-                            Trucking
-                        </h2>
-
-                        <img class="ms-layer" src="masterslider/blank.gif" data-src="img/slider/slider-line.jpg" alt=""
-                            style="left: 540px; top: 450px;"
-                            data-type="image" 
-                            data-effect="bottom(short)" 
-                            data-duration="300"
-                            data-hide-effect="fade" 
-                            data-delay="300" 
-                            />
-
-                        <p class="ms-layer pi-text"
-                        style="left: 265px; top: 470px;"
-                        data-type="text" 
-                        data-effect="top(short)" 
-                        data-duration="300"
-                        data-hide-effect="fade" 
-                        data-delay="600"      
-                        >
-                            Powerful Transport & Logistics Web Solution
-                        </p>
+                                Fast International Air Delivery
+                            </p>
+                        </div>
                     </div><!-- .slide slide04 end -->
                 </agile><!-- #masterslider end -->
             </div>
@@ -638,17 +591,21 @@ export default {
     }
     .slider-header .slide h2,.slider-header .slide p{
         position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: unset !important;
 
     }
     .slider-header .slide h2{
         z-index: 9999;
         top: 400px;
-        font-size: 5rem;
+        font-size: 6rem;
         color: white;
     }
 
     .slider-header .slide p{
         color: white;
+        font-size: 2rem;
     }
     .slider-header img{
         position: relative;
@@ -656,5 +613,11 @@ export default {
 
     .slider-header .slide{
         cursor: pointer;
+    }
+
+    .slider-header .slide .container-text-slide{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

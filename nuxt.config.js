@@ -48,8 +48,19 @@ export default {
       { src: '/js/masterslider/masterslider.js' },
       { src: '/js/jquerymatch.js' },
       { src: '/js/jquerydlmenu.js' },
+      // { src: "/dashbord_assets/js/app.min.js" },
+      // { src: "/dashbord_assets/js/chart.min.js" },
+      // { src: "/dashbord_assets/js/table.min.js" },
+
+      // { src: "/dashbord_assets/js/bundles/export-tables/jszip.js"},
+      // { src: "/dashbord_assets/js/bundles/export-tables/jszip-utils.js"},
+      // { src: "/dashbord_assets/js/pages/tables/jquery-datatable.js" },
+
       // { src: '/js/style-switcher/styleswitcher.js' },
       // { src: '/js/include.js' },
+      { src: "/dashbord_assets/js/app.min.js" },
+      { src: "/dashbord_assets/js/chart.min.js" },
+      { src: "/dashbord_assets/js/table.min.js" },
     ]
   },
 
@@ -67,6 +78,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/appmin.js', ssr: false },
+    // { src: '~/plugins/admin.js', ssr: false },
+    // { src: '~/plugins/app.min.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -74,7 +88,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxt/components'
+    '@nuxt/components',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

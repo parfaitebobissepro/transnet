@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="container-login100-form-btn">
                                     <button class="login100-form-btn">
-                                        Login
+                                        Se connecter
                                     </button>
                                 </div>
                                 <ul class="login-more p-t-100">
