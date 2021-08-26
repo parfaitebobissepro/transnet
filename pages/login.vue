@@ -9,36 +9,57 @@
                                 <span class="login100-form-avatar">
                                     <img src="img/unsplash/avatar-01.jpg" alt="AVATAR">
                                 </span>
-                                <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Enter username">
-                                    <input class="input100" type="text" name="username">
-                                    <span class="focus-input100" data-placeholder="Username"></span>
+                                <div class="wrap-input100 validate-input m-t-85 m-b-0" data-validate="Enter username">
+                                    <input class="input100" type="text" v-model.trim="$v.username.$model">
+                                    <span class="focus-input100" data-placeholder="Nom d'utilisateur ou email"></span>
                                 </div>
-                                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-                                    <input class="input100" type="password" name="pass">
+                                <div
+                                    class="error m-b-35"
+                                    :style="
+                                    usernameErrors != ''
+                                        ? { visibility: 'visible' }
+                                        : { visibility: 'hidden' }
+                                    "
+                                >
+                                    Entrez le nom d'utilisateur ou l'email
+                                </div>
+
+                                <div class="wrap-input100 validate-input m-b-0" data-validate="Enter password">
+                                    <input class="input100" type="password" v-model.trim="$v.password.$model">
                                     <span class="focus-input100" data-placeholder="Password"></span>
+                                </div>                                
+                                <div
+                                    class="error m-b-50"
+                                    :style="
+                                    passwordErrors != ''
+                                        ? { visibility: 'visible' }
+                                        : { visibility: 'hidden' }
+                                    "
+                                >
+                                    Entrez le nom d'utilisateur ou l'email
                                 </div>
                                 <div class="container-login100-form-btn">
                                     <button class="login100-form-btn">
                                         Se connecter
                                     </button>
                                 </div>
-                                <ul class="login-more p-t-100">
-                                    <li class="m-b-8">
-                                        <span class="txt1">
-                                            Forgot
-                                        </span>
+                                <ul class="login-more p-t-50 text-center">
                                         <a href="#" class="txt2">
-                                            Username / Password?
+                                           Mot de passe oublié
                                         </a>
-                                    </li>
-                                    <li>
+                                        <br>
                                         <span class="txt1">
-                                            Don’t have an account?
+                                            Je n'ai pas de compte
                                         </span>
-                                        <a href="#" class="txt2">
-                                            Sign up
-                                        </a>
-                                    </li>
+                                        <NuxtLink :to="'/register'"  class="txt2">
+                                            <pulse-loader
+                                            :loading="loading"
+                                            :color="colorLaoder"
+                                            :size="sizeLoader"
+                                            v-if="submitStatus == 'PENDING'"
+                                            ></pulse-loader>
+                                            S'inscrire
+                                        </NuxtLink>
                                 </ul>
                             </form>
                         </div>
@@ -49,9 +70,26 @@
     </div>
 </template>
 <script>
+import Vue from "vue";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+import { required, minLength, between, email } from "vuelidate/lib/validators";
     export default {
         name: 'Login',
+        components: { PulseLoader },
         layout: 'frontLayoutNoFooter',
+        data() {
+            return {
+            username: "",
+            password: "",
+            submitStatus: null,
+            typeUser: "Etudiant",
+            validForm: true,
+            sizeLoader: "9px",
+            colorLaoder: "#FFF"
+            };
+        },
         head: {
             title: "Transnet -  Connnexion",
             link: [
@@ -70,10 +108,55 @@
                 { src: "/js/main.js" },
             ]
         },
+        validations: {
+            username: {
+            required
+            },
+            password: {
+            required
+            }
+        },
+        computed: {
+            usernameErrors() {
+                // this.test();
+                const errors = [];
+                if (!this.$v.username.$dirty) return errors;
+                !this.$v.username.required &&
+                    errors.push("Le nom d'utilisateur est obligatoiree");
+                return errors;
+            },
+            passwordErrors() {
+                const errors = [];
+                if (!this.$v.password.$dirty) return errors;
+                !this.$v.password.required &&
+                    errors.push("Le mot de passe est obigatoire");
+                return errors;
+            }
+        },
+        methods: {
+            submit() {
+                this.$v.$touch();
+                if (this.$v.username.$invalid) {
+                    this.submitStatus = "ERROR";
+                } else {
+                    this.submitStatus = "PENDING";
+                    this.registerApi(this.username, this.password);
+                }
+            },
+        }
     }
 </script>
 <style lang="scss" scoped>
     .container-login100 *{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .login100-form-avatar{
+        width: 150px;
+        height: 150px;
+    }
+
+    .container-login100{
+        padding: 10%;
     }
 </style>

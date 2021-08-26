@@ -42,6 +42,7 @@ import AsidesDashboard from "../components/dashboard/asidesDashboard";
 
 
 export default {
+  middleware: 'authentication',
   components: {
     NavbarDashboard,
     AsidesDashboard,

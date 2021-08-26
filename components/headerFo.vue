@@ -24,41 +24,46 @@
                                 <!-- MAIN NAVIGATION -->
                                 <div class="collapse navbar-collapse">
                                     <ul class="nav navbar-nav">
-                                        <li class="dropdown current-menu-item">
-                                            <NuxtLink :to="'/'" data-toggle="dropdown">
-                                                Home
+                                        <li class="dropdown">
+                                            <NuxtLink :to="'/'">
+                                                Accueil
                                             </NuxtLink>
                                         </li><!-- .dropdown end -->
 
                                         <li class="dropdown">
-                                            <NuxtLink :to="'/apropos'" data-toggle="dropdown">
+                                            <NuxtLink :to="'/apropos'">
                                                 A PROPOS
                                             </NuxtLink>
                                         </li><!-- .dropdown end -->
 
                                         <li class="dropdown">
-                                            <NuxtLink :to="'/services'" data-toggle="dropdown">
+                                            <NuxtLink :to="'/services'">
                                                 Services
                                             </NuxtLink>
                                         </li><!-- .dropdown end -->
 
                                         <li class="dropdown">
-                                            <NuxtLink :to="'/publications'" data-toggle="dropdown">
+                                            <NuxtLink :to="'/publications'">
                                                 PUBLICATIONS
                                             </NuxtLink>
                                         </li><!-- .dropdown end -->
 
                                         <li>
-                                            <NuxtLink :to="'/devis'" data-toggle="dropdown">
+                                            <NuxtLink :to="'/devis'">
                                                 Devis
                                             </NuxtLink>
                                         </li>
 
                                         <li class="dropdown">
-                                            <NuxtLink :to="'/Contact'" data-toggle="dropdown">
+                                            <NuxtLink :to="'/Contact'">
                                                 Contact
                                             </NuxtLink>
                                         </li><!-- .dropdown end -->
+                                        <li class="dropdown" id="loginLi">
+                                            <NuxtLink :to="'/login'">
+                                                Connexion
+                                            </NuxtLink>
+                                        </li>
                                     </ul><!-- .nav.navbar-nav end -->
 
                                     <!-- RESPONSIVE MENU -->
@@ -66,37 +71,42 @@
                                         <button class="dl-trigger">Open Menu</button>
 
                                         <ul class="dl-menu">
-                                            <li>
-                                                <NuxtLink :to="'/'">
-                                                    Home
+                                            <li @click="toogleMenu">
+                                                <NuxtLink :to="'/'" >
+                                                    Accueil
                                                  </NuxtLink>
                                             </li>
-                                            <li>
-                                                <NuxtLink :to="'/apropos'">
+                                            <li @click="toogleMenu">
+                                                <NuxtLink :to="'/apropos'" >
                                                     A PROPOS
                                                  </NuxtLink>
                                             </li>
 
-                                            <li>
-                                                <NuxtLink :to="'/services'">
+                                            <li @click="toogleMenu">
+                                                <NuxtLink :to="'/services'" >
                                                     Services
                                                  </NuxtLink>
                                             </li>
 
-                                            <li>
+                                            <li @click="toogleMenu">
                                                 <NuxtLink :to="'/publications'">
                                                     PUBLICATIONS
                                                  </NuxtLink>
                                             </li>
 
-                                            <li>
+                                            <li @click="toogleMenu">
                                                 <NuxtLink :to="'/devis'">
                                                     Devis
                                                  </NuxtLink>
                                             
-                                            <li>
+                                            <li @click="toogleMenu">
                                                 <NuxtLink :to="'/Contact'">
                                                     Contact
+                                                 </NuxtLink>
+                                            </li>
+                                            <li @click="toogleMenu">
+                                                <NuxtLink :to="'/login'">
+                                                    Connexion
                                                  </NuxtLink>
                                             </li>
                                         </ul><!-- .dl-menu end -->
@@ -120,9 +130,14 @@
   </div>
 </template>
 <script>
+
+
 export default {
     name:'HEADERFO',
     mounted() {
+
+
+
         (jQuery)(function ($) {
           // MAIN NAVIGATION
           $('.nav .dropdown').hover(function() {
@@ -405,8 +420,22 @@ export default {
 
           });
       });
-
     },
+    methods:{
+        toogleMenu(){
+            // alert("oui");
+            // $('#dl-menu .dl-menu').hide();
+            if($('#dl-menu .dl-menu').hasClass('dl-menuopen')){
+                $('#dl-menu .dl-trigger').removeClass('dl-active');
+                $('#dl-menu .dl-menu').removeClass('dl-menuopen');
+            }
+
+            $('#dl-menu .dl-trigger').on("click",function(){
+                $('#dl-menu .dl-trigger').addClass('dl-active');
+                $('#dl-menu .dl-menu').addClass('dl-menuopen');
+            })
+        }
+    }
 }
 </script>
 <style scoped>
@@ -469,6 +498,13 @@ export default {
             display: block !important;
         }
 
+        .navbar-header{
+            width: 100%;
+        }
+
+        .scroll-up{
+            right: 20px;
+        }
     }
 
 </style>
@@ -476,5 +512,10 @@ export default {
     .container-fluid.maxx {
         padding-left: 0px;
         padding-right: 0px; 
+    }
+
+    #loginLi a.current-menu-item, #loginLi a:hover{
+        border-color: transparent;
+        color: #006db7;
     }
 </style>

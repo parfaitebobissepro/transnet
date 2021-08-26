@@ -96,13 +96,24 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     'nuxt-agile',
+    'cookie-universal-nuxt',
+    ['@nuxtjs/axios'],
     ['nuxt-gmaps', {
       key: 'AIzaSyDQPH1XsYNQ6MbXv6OsRT_L4lZmfA4euzM',
       //you can use libraries: ['places']
     }]
   ],
 
+  router: {
+    linkActiveClass: '',
+    linkExactActiveClass: 'current-menu-item'
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  axios: {
+    baseURL: process.env.BASE_URL,
   }
 }

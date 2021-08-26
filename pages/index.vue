@@ -9,14 +9,13 @@
                         </div>
                         </div>
                     </agile> -->
-                <agile :nav-buttons="false" :autoplay-speed="7000" :speed="2500" fade="fade" pause-on-hover="pause-on-hover" autoplay="autoplay">
+                <agile :nav-buttons="false" :autoplay-speed="7000" :speed="2500" fade="fade" pause-on-hover="pause-on-hover" autoplay="autoplay" :rtl="false" :dots="false">
                     <div class="slide">
                         <div class="container-text-slide">
                             <!-- slide background -->
                             <img src="/img/unsplash/mak-fVDOn6sXWps-unsplash.jpg" alt="International Air freight"/> 
 
-                            <h2 class="ms-layer pi-caption01 title-slider" 
-                                style="left: 58px; top: 390px;" 
+                            <h2 class="ms-layer pi-caption01 title-slider"  
                                 data-type="text" 
                                 data-effect="top(short)" 
                                 data-duration="300"
@@ -26,7 +25,7 @@
                                 International Air Freight
                             </h2>
                             <p class="ms-layer pi-text"
-                            style="left: 375px; top: 470px;"
+                            style=""
                             data-type="text" 
                             data-effect="top(short)" 
                             data-duration="300"
@@ -43,8 +42,7 @@
                         <!-- slide background -->
                         <div class="container-text-slide">
                             <img src="/img/unsplash/pascal-meier-HfYk04kY0ZQ-unsplash.jpg" alt="Worldwide freight services"/>
-                            <h2 class="ms-layer pi-caption01 title-slider" 
-                                style="left: 58px; top: 390px;" 
+                            <h2 class="ms-layer pi-caption01 title-slider"  
                                 data-type="text" 
                                 data-effect="top(short)" 
                                 data-duration="300"
@@ -54,7 +52,7 @@
                                 International Air Freight
                             </h2>
                             <p class="ms-layer pi-text"
-                            style="left: 375px; top: 470px;"
+                            style=""
                             data-type="text" 
                             data-effect="top(short)" 
                             data-duration="300"
@@ -69,8 +67,7 @@
                     <div class="slide">
                         <div class="container-text-slide">
                             <img src="/img/unsplash/bernd-dittrich-eCc7FjMoR74-unsplash.jpg"  alt="Worldwide freight services"/>
-                            <h2 class="ms-layer pi-caption01 title-slider" 
-                                style="left: 58px; top: 390px;" 
+                            <h2 class="ms-layer pi-caption01 title-slider"  
                                 data-type="text" 
                                 data-effect="top(short)" 
                                 data-duration="300"
@@ -80,7 +77,7 @@
                                 International Air Freight
                             </h2>
                             <p class="ms-layer pi-text"
-                            style="left: 375px; top: 470px;"
+                            style=""
                             data-type="text" 
                             data-effect="top(short)" 
                             data-duration="300"
@@ -598,14 +595,16 @@ export default {
     }
     .slider-header .slide h2{
         z-index: 9999;
-        top: 400px;
-        font-size: 6rem;
+        top: 45%;
+        font-size: 7vw;
         color: white;
     }
 
     .slider-header .slide p{
         color: white;
         font-size: 2rem;
+        top: 60%;
+        display: none;
     }
     .slider-header img{
         position: relative;
