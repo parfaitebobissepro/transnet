@@ -7,9 +7,9 @@
                         <div class="wrap-login100 p-t-85 p-b-20">
                             <form class="login100-form validate-form">
                                 <span class="login100-form-avatar">
-                                    <img src="img/unsplash/avatar-01.jpg" alt="AVATAR">
+                                    <img src="img/images.png" alt="AVATAR">
                                 </span>
-                                <div class="wrap-input100 validate-input m-t-85 m-b-0" data-validate="Enter username">
+                                <div class="wrap-input100 validate-input m-t-50 m-b-0" data-validate="Enter username">
                                     <input class="input100" type="text" v-model.trim="$v.username.$model">
                                     <span class="focus-input100" data-placeholder="Nom d'utilisateur ou email"></span>
                                 </div>
