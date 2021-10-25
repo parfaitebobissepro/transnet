@@ -1,9 +1,19 @@
 <script>
-import Vuelidate from "vuelidate";
+import Vue from "vue";
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-default.css';
+import 'vue-toast-notification/dist/theme-sugar.css';
 Vue.use(VueToast);
-Vue.use(Vuelidate);
 
 export default {
-    
+    methods:{
+        toaster(message, type) {
+            let instance = Vue.$toast.open({
+                message: message,
+                type: type,
+                position: "top",
+            });
+        }
+    }
 }
 </script>

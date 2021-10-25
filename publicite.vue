@@ -374,10 +374,10 @@
 import BANNERFO from "../components/bannerFo.vue";
 
 export default {
-    name:'Publication',
+    name:'Publicites',
     layout:'frontLayout',
     head: {
-        title: "Transnet -  Publicite",
+        title: "Transnet -  Publicites",
     },
     components: {
       BANNERFO,

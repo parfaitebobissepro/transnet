@@ -70,6 +70,7 @@
                     class="input100"
                     type="password"
                     v-model.trim="$v.password.$model"
+                    autocomplete="new-password"
                   />
                   <span
                     class="focus-input100"
@@ -133,8 +134,14 @@
                     class="login100-form-btn"
                     type="submit"
                     :disabled="!validForm"
+                    :class="submitStatus == 'PENDING' ? 'pending' : ''"
                   >
-                    S'inscrire
+                    <pulse-loader
+                      :color="colorLaoder"
+                      :size="sizeLoader"
+                      v-if="submitStatus == 'PENDING'"
+                    ></pulse-loader>
+                    <span v-if="submitStatus != 'PENDING'">S'inscrire</span>
                   </button>
                 </div>
               </form>
@@ -154,11 +161,11 @@ import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 import Vuelidate from "vuelidate";
 Vue.use(Vuelidate);
 import { required, email, sameAs } from "vuelidate/lib/validators";
-import {toaster} from "../custom_functions/functions";
 
 export default {
   name: "Signin",
   layout: "frontLayoutNoFooter",
+  components:{PulseLoader},
   head: {
     title: "Transnet -  Inscription",
     link: [
@@ -183,7 +190,9 @@ export default {
       cpassword: "",
       typeUser: "client",
       submitStatus: null,
-      validForm: true,
+      validForm: false,
+      sizeLoader: "9px",
+      colorLaoder: "#FFF",
     };
   },
   validations: {
@@ -212,6 +221,7 @@ export default {
       if (!this.$v.username.$dirty) return errors;
       !this.$v.username.required &&
         errors.push("Le nom d'utilisateur est obligatoire");
+      this.test();
       return errors;
     },
 
@@ -220,6 +230,7 @@ export default {
       if (!this.$v.email.$dirty) return errors;
       !this.$v.email.required && errors.push("L'email est obligatoire");
       this.$v.email.$invalid && errors.push("L'email incorrect");
+      this.test();
       return errors;
     },
 
@@ -231,6 +242,7 @@ export default {
         errors.push(
           "Le mot de passe doit comporter, au moins 08 caractères dont au minimum une majuscule, une minuscule, un chiffre et un caractère spécial"
         );
+      this.test();
       return errors;
     },
 
@@ -239,16 +251,12 @@ export default {
       if (!this.$v.cpassword.$dirty) return errors;
       !this.$v.cpassword.sameAsPassword &&
         errors.push("header_fo.pwd_error_different");
+      this.test();
       return errors;
     },
   },
   methods: {
-    submit() {
-      //   this.$v.$touch();
-      // do your submit logic here
-    //   toaster("bonjour","error");
-    //   console.log(toaster);
-
+    async submit() {
       if (
         !this.$v.username.$invalid &&
         !this.$v.email.$invalid &&
@@ -256,12 +264,26 @@ export default {
         !this.$v.cpassword.$invalid
       ) {
         this.submitStatus = "PENDING";
-        this.registerApi(
+        await this.registerApi(
           this.username,
           this.email,
           this.typeUser,
           this.cpassword
         );
+        this.submitStatus = "OK";
+      }
+    },
+
+    test() {
+      if (
+        !this.$v.username.$invalid &&
+        !this.$v.email.$invalid &&
+        !this.$v.password.$invalid &&
+        !this.$v.cpassword.$invalid
+      ) {
+        this.validForm = true;
+      } else {
+        this.validForm = false;
       }
     },
 
@@ -273,15 +295,26 @@ export default {
       data.append("type", type);
       data.append("password", password);
       //   data.append("lang", this.$i18n.locale);
-      console.log(data);
+      // console.log(data);
       let response = await this.$store.dispatch("auth/register", data);
 
-      if (response.response != undefined) {
-        toaster("Une erreur est survenue veuillez ressayer.");
+      if (response.type == null) {
+        this.$mesFonctions.toaster({
+          message: "Une erreur est survenue",
+          type: "error",
+        });
       } else {
-        toaster(response.message, response.type);
+        this.$mesFonctions.toaster({
+          message: response.message,
+          type: response.type,
+        });
+        if( response.type == 'success'){
+          setTimeout(() => {
+            this.$router.push('/login');
+          }, 1000);
+        }
       }
-      //   console.log(response.message.response.data.type);
+
     },
     slugify(text) {
       return text

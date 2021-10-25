@@ -99,13 +99,34 @@ export default {
     };
   },
 
+  async created() {
+    console.log("created");
+    const cookieLog = this.$cookies.get("auth", { parseJSON: true });
+    console.log(cookieLog);
+    if (cookieLog) {
+      if (cookieLog.isLoggedIn) {
+        // console.log(cookieLog.user);
+        // this.$socket.emit("login", { userId: cookieLog.user._id });
+        let payload = {
+          isLoggedIn: cookieLog.isLoggedIn,
+          user: cookieLog.user
+        };
+        let data = await this.$store.dispatch(
+          "auth/setAuthStatusMiddle",
+          payload
+        );
+      }
+    }
+  
+  },
+
   mounted() {
     setTimeout(() => {
       const script2 = document.createElement("script");
       script2.type = "text/javascript";
       script2.src = "/dashbord_assets/js/admin.js";
       document.body.appendChild(script2);
-    }, 3000);
+    }, 4000);
   },
 };
 </script>

@@ -79,6 +79,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/appmin.js', ssr: false },
+    { src: '~/plugins/mesFonctions/index.js', ssr: false },
     // { src: '~/plugins/admin.js', ssr: false },
     // { src: '~/plugins/app.min.js', ssr: false },
   ],

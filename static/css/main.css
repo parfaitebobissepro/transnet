@@ -310,6 +310,10 @@ iframe {
   justify-content: center;
 }
 
+.login100-form-btn span{
+  color: #fff !important;
+}
+
 .login100-form-btn {
   font-family: Poppins-Medium;
   font-size: 16px;

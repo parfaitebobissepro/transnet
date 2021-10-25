@@ -91,89 +91,33 @@
                 </agile><!-- #masterslider end -->
             </div>
 
-            <div class="page-content parallax parallax01 mb-70">
+            <div class="page-content parallax parallax01 mb-70" v-if="articles">
                 <div class="container">
                     <div class="row services-negative-top">
-                        <div class="col-md-4 col-sm-4">
+                        <div class="col-md-4 col-sm-4"  v-for="article in articles.slice(0, 3)" :key="article._id">
                             <div class="service-feature-box">
                                 <div class="service-media">
                                     <img src="img/pics/img01.jpg" alt="Trucking"/>
 
-                                    <a href="overland-transportation.html" class="read-more02">
+                                    <NuxtLink :to="'/articles/' + article.slug" class="read-more02">
                                         <span>
-                                            Read more
+                                            Lire plus
                                             <i class="fa fa-chevron-right"></i>
                                         </span>
-                                    </a>
+                                    </NuxtLink>
                                 </div><!-- .service-media end -->
 
                                 <div class="service-body">
                                     <div class="custom-heading">
-                                        <h4>GROUND SHIPPING</h4>
+                                        <h4>{{article.title}}</h4>
                                     </div><!-- .custom-heading end -->
-
-                                    <p>
+                                    <div v-html="$options.filters.strippedContent(article.content)"></div>
+                                    <!-- <p>
                                         We have a wide experience in overland 
                                         industry specific logistic solutions like 
                                         pharmaceutical logistics, retail and 
                                         automotive logistics by train or road.
-                                    </p>
-                                </div><!-- .service-body end -->
-                            </div><!-- .service-feature-box-end -->
-                        </div><!-- .col-md-4 end -->
-
-                        <div class="col-md-4 col-sm-4">
-                            <div class="service-feature-box">
-                                <div class="service-media">
-                                    <img src="img/pics/img02.jpg" alt="Trucking"/>
-
-                                    <a href="large-projects.html" class="read-more02">
-                                        <span>
-                                            Read more
-                                            <i class="fa fa-chevron-right"></i>
-                                        </span>
-                                    </a>
-                                </div><!-- .service-media end -->
-
-                                <div class="service-body">
-                                    <div class="custom-heading">
-                                        <h4>LARGE PROJECTS</h4>
-                                    </div><!-- .custom-heading end -->
-
-                                    <p>
-                                        We bring your goods safely to worldwide 
-                                        destinations with our great sea fright
-                                        services. We offer LLC and FLC shipments
-                                        that are fast and effective with no delays. 
-                                    </p>
-                                </div><!-- .service-body end -->
-                            </div><!-- .service-feature-box-end -->
-                        </div><!-- .col-md-4 end -->
-
-                        <div class="col-md-4 col-sm-4">
-                            <div class="service-feature-box">
-                                <div class="service-media">
-                                    <img src="img/pics/img03.jpg" alt="Trucking"/>
-
-                                    <a href="air-freight.html" class="read-more02">
-                                        <span>
-                                            Read more
-                                            <i class="fa fa-chevron-right"></i>
-                                        </span>
-                                    </a>
-                                </div><!-- .service-media end -->
-
-                                <div class="service-body">
-                                    <div class="custom-heading">
-                                        <h4>INTERNATIONAL AIR FREIGHT</h4>
-                                    </div><!-- .custom-heading end -->
-
-                                    <p>
-                                        We provide full supply chain management 
-                                        package including cost effective and fast 
-                                        sea freight. You can also combine this 
-                                        package with other means of transportation.
-                                    </p>
+                                    </p> -->
                                 </div><!-- .service-body end -->
                             </div><!-- .service-feature-box-end -->
                         </div><!-- .col-md-4 end -->
@@ -181,11 +125,11 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="services02.html" class="btn btn-big btn-yellow btn-centered">
+                            <NuxtLink to="/articles" class="btn btn-big btn-yellow btn-centered">
                                 <span>
-                                    view details
+                                    Voir plus
                                 </span>
-                            </a>
+                            </NuxtLink>
                         </div><!-- .col-md-12 end -->
                     </div><!-- .row end -->
                 </div><!-- .container end -->
@@ -555,6 +499,9 @@
 
 <script>
 import Vue from "vue";
+import { mapState } from "vuex";
+import moment from "moment";
+moment.locale('fr');
 
 export default {
     name:'Accueil',
@@ -568,6 +515,25 @@ export default {
             content: "Home page description"
         }
         ],
+    },
+    async created() {
+        const result = await this.$store.dispatch(
+        "frontoffice/getArticles"
+        );
+        console.log(result);
+    },
+    computed: {
+        ...mapState({
+        articles: state => state.frontoffice.articles,
+        }),
+    },
+    filters: {
+        moment: function(date) {
+        return moment(date).format('LL');
+        },
+        strippedContent: function(string) {
+            return string.replace(/<\/?[^>]+>/ig, " ").substring(0,150)+'...';
+        }
     },
 }
 </script>

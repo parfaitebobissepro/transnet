@@ -1,9 +1,8 @@
 export default function({redirect,app}){
     var authCookies = app.$cookies.get('auth', { parseJSON: true });
-    console.log(test);
-    console.log('test a voir');
     if (authCookies) {
         if (!authCookies.isLoggedIn) {
+            // this.$router.push('/login');
             return redirect('/login');
         }
     }else{

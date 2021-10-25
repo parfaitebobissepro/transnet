@@ -7,54 +7,10 @@
                 <div class="row">
                     <aside class="col-md-3 aside aside-left">
                         <ul class="aside-widgets">
-                            <li class="widget widget_nav_menu clearfix">
-                                <div class="title">
-                                    <h3>company</h3>
-                                </div>
-
-                                <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="about01.html">About simple</a>
-                                    </li>
-
-                                    <li class="menu-item">
-                                        <a href="about02.html">About compact</a>
-                                    </li>
-
-                                    <li class="menu-item">
-                                        <a href="about03.html">About with sidebar</a>
-                                    </li>
-
-                                    <li class="menu-item">
-                                        <a href="simple-page-title.html">Simple page title</a>
-                                    </li>
-
-                                    <li class="menu-item">
-                                        <a href="company-history.html">Company history</a>
-                                    </li>
-
-                                    <li class="menu-item">
-                                        <a href="events.html">Company Events</a>
-                                    </li>
-
-                                    <li class="menu-item">
-                                        <a href="clients.html">Company clients</a>
-                                    </li>
-
-                                    <li class="menu-item">
-                                        <a href="careers.html">Careers</a>
-                                    </li>
-
-                                    <li class="menu-item current-menu-item">
-                                        <a href="driver-application.html">Online driver application</a>
-                                    </li>
-                                </ul><!-- .menu end -->
-                            </li><!-- .widget.widget_nav_menu end -->
-
                             <!-- .widget.widget-text start -->
                             <li class="widget widget-text">
                                 <div class="title">
-                                    <h3>contact us</h3>
+                                    <h3>Nous contacter</h3>
                                 </div>
 
                                 <img src="img/pics/locations.jpg" alt="contact us"/>
@@ -66,12 +22,12 @@
                                     us today!
                                 </p>
 
-                                <a href="contact-simple.html" class="read-more">
+                                <NuxtLink to="/contact" class="read-more">
                                     <span>
-                                        Contact us
+                                        Nous contacter
                                         <i class="fa fa-chevron-right"></i>
                                     </span>
-                                </a>
+                                </NuxtLink>
                             </li><!-- .widget-text end -->
                         </ul><!-- .aside-widgets end -->
                     </aside><!-- .aside.aside-left end -->
