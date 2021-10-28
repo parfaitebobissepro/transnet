@@ -100,7 +100,7 @@ export default {
     'cookie-universal-nuxt',
     ['@nuxtjs/axios'],
     ['nuxt-gmaps', {
-      key: 'AIzaSyDQPH1XsYNQ6MbXv6OsRT_L4lZmfA4euzM',
+      key: 'AIzaSyCu_02TUhS9540ebRButDC8xjYhDhgqJs8',
       //you can use libraries: ['places']
     }]
   ],

@@ -61,23 +61,36 @@
 
                         <form class="wpcf7 driver-app-form clearfix">
                             <fieldset>
-                                <label><span class="required">*</span> Driver first name:</label>
+                                <label><span class="required">*</span> Poids (Kg):</label>
 
-                                <input type="text" class="wpcf7-text" id="driver-name">
+                                <input type="number" class="wpcf7-text" id="driver-name" placeholder="0" min="0">
                             </fieldset>
 
                             <fieldset>
-                                <label><span class="required">*</span> Driver last name:</label>
+                                <label><span class="required">*</span> Fragilité (0-10):</label>
 
-                                <input type="text" class="wpcf7-text" id="driver-last-name">
+                                <input type="number" class="wpcf7-text" id="driver-last-name" placeholder="0" min="0" max="10">
                             </fieldset>
 
                             <fieldset>
-                                <label><span class="required">*</span> Driver last name:</label>
+                                <label><span class="required">*</span> Distance:</label>
 
-                                <input type="text" class="wpcf7-text" id="driver-date-birth" placeholder="mm/dd/yy">
+                                <input type="number" class="wpcf7-text" id="driver-date-birth" placeholder="0" min="0">
                             </fieldset>
 
+
+                            <fieldset>
+                                <label><span class="required">*</span> Départ(quartier):</label>
+
+                                <SearchAutocomplete :items="photomDepartItems" :isAsync="false" @input="searcInPhotom"></SearchAutocomplete>
+                            </fieldset>
+
+                            <fieldset>
+                                <label><span class="required">*</span> Destination(quartier):</label>
+
+                                <SearchAutocomplete></SearchAutocomplete>
+                            </fieldset>
+<!-- 
                             <fieldset>
                                 <label><span class="required">*</span> You are:</label>
 
@@ -115,7 +128,7 @@
                                 <label><span class="required">*</span> Years of experience:</label>
 
                                 <input class="wpcf7-text" id="driver-experience" placeholder="Minimum 3...">
-                            </fieldset>
+                            </fieldset> -->
 
                             <input type="submit" class="wpcf7-submit" value="apply now">
                         </form><!-- .wpcf7 end -->
@@ -168,6 +181,7 @@
 
 <script>
 import BANNERFO from "../components/bannerFo.vue";
+import SearchAutocomplete from "../components/searchAutoComplete.vue";
 
 export default {
     name:'Devis',
@@ -175,8 +189,22 @@ export default {
     head: {
         title: "Transnet -  Devis",
     },
+    data() {
+        return {
+            photomDepartItems:[]
+        }
+    },
     components: {
       BANNERFO,
+      SearchAutocomplete,
     },
+    methods: {
+        async searcInPhotom(ville){
+            console.log(ville);
+            let response = await this.$store.dispatch("frontoffice/searchCity", ville);
+            this.photomDepartItems = response;
+            console.log(this.photomDepartItems);
+        },
+    }
 }
 </script>

@@ -1,6 +1,7 @@
 export const state = () => ({
     articles: null,
     articles_details: null,
+    streetsPhoton: null,
   });
   
   export const mutations = {
@@ -78,4 +79,17 @@ export const state = () => ({
       }
       return data;
   },
+
+    async searchCity({ commit }, payload) {
+        const reponse = await this.$axios.$get(`https://photon.komoot.io/api/?q=`+ payload)
+            .then(response => {
+                // console.log(response.data);
+                console.log(response);
+                // commit('setArticles', response.data);
+                // console.log(response);
+                return response.data;
+            })
+            .catch(error => ({ error: JSON.stringify(error) }));
+        return reponse;
+    },
   }
