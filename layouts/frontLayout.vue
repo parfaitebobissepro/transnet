@@ -44,6 +44,6 @@ button:disabled:hover {
 }
 
 .pending {
-  pointer-events: none;
+  pointer-events: none !important;
 }
 </style>

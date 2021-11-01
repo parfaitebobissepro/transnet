@@ -14,7 +14,7 @@ export const state = () => ({
   };
   
   export const actions = {
-    async contactApi(payload) {
+    async contactApi({ commit }, payload) {
       console.log(payload);
       try {
         let response = await this.$axios.$post(
@@ -84,12 +84,29 @@ export const state = () => ({
         const reponse = await this.$axios.$get(`https://photon.komoot.io/api/?q=`+ payload)
             .then(response => {
                 // console.log(response.data);
-                console.log(response);
+                console.log(response.features);
                 // commit('setArticles', response.data);
                 // console.log(response);
-                return response.data;
+                return response.features;
             })
             .catch(error => ({ error: JSON.stringify(error) }));
         return reponse;
+    },
+
+    async devisApi({ commit },payload) {
+      console.log(payload);
+      try {
+        let response = await this.$axios.$post(
+          `${this.$axios.defaults.baseURL}/api/devis`,
+          payload,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        );
+        console.log(response);
+        return response;
+      } catch (error) {
+        return error;
+      }
     },
   }

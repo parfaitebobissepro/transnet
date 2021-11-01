@@ -65,12 +65,12 @@
                   Entrez le nom d'utilisateur ou l'email
                 </div>
                 <div class="container-login100-form-btn">
-                  <button class="login100-form-btn">
+                  <button class="login100-form-btn" :class="submitStatus == 'PENDING' ? 'pending' : ''">
                     <pulse-loader
                       :color="colorLaoder"
                       :size="sizeLoader"
                       v-if="submitStatus == 'PENDING'"
-                      :class="submitStatus == 'PENDING' ? 'pending' : ''"
+                      
                     ></pulse-loader>
                     <span v-if="submitStatus != 'PENDING'">Se connecter</span>
                   </button>

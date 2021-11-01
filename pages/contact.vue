@@ -49,7 +49,13 @@
               <fieldset>
                 <label> <span class="required">*</span> Name: </label>
 
-                <input type="text" class="wpcf7-text" id="contact-name" required v-model="name" />
+                <input
+                  type="text"
+                  class="wpcf7-text"
+                  id="contact-name"
+                  required
+                  v-model="name"
+                />
               </fieldset>
 
               <fieldset>
@@ -86,7 +92,15 @@
                 ></textarea>
               </fieldset>
 
-              <input type="submit" class="wpcf7-submit" value="send" />
+              <!-- <input type="submit" class="wpcf7-submit" value="send" /> -->
+              <button class="wpcf7-submit" type="submit" style="color:#FFF" :class="submitStatus == 'PENDING' ? 'pending' : ''">
+                <pulse-loader
+                  :color="colorLaoder"
+                  :size="sizeLoader"
+                  v-if="submitStatus == 'PENDING'"
+                ></pulse-loader>
+                <span v-if="submitStatus != 'PENDING'">Envoyer</span>
+              </button>
             </form>
             <!-- .wpcf7 end -->
           </div>
@@ -148,6 +162,8 @@
 </template>
 
 <script>
+import Vue from "vue";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 import BANNERFO from "../components/bannerFo.vue";
 const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
@@ -159,9 +175,13 @@ export default {
   },
   components: {
     BANNERFO,
+    PulseLoader,
   },
   data() {
     return {
+      submitStatus: null,
+      sizeLoader: "9px",
+      colorLaoder: "#FFF",
       name: "",
       subject: "",
       email: "",
@@ -213,7 +233,10 @@ export default {
       data.append("email", email);
       data.append("message", message);
       //   data.append("lang", this.$i18n.locale);
-      // console.log(data);
+      console.log(data);
+      for (let [key, value] of data) {
+  console.log(`${key}: ${value}`)
+}
       let response = await this.$store.dispatch("frontoffice/contactApi", data);
       console.log(response);
       if (response.type == null) {
@@ -231,3 +254,8 @@ export default {
   },
 };
 </script>
+<style>
+.wpcf7-submit span{
+  color:#FFF;
+}
+</style>
