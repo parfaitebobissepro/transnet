@@ -33,7 +33,7 @@
 
           <div class="col-md-9">
             <div class="custom-heading">
-              <h2>want to become our driver?</h2>
+              <h2>FAIRE UN DEVIS DE TRANSPORT</h2>
             </div>
 
             <img class="float-right" src="img/pics/img25.jpg" width="360" alt="" />
@@ -298,7 +298,7 @@
               </modal>
             </form>
             <div>
-                <registerComponent></registerComponent>
+                <!-- <registerComponent></registerComponent> -->
             </div>
             <!-- <div class="col-md-12 mt-5">
               <div class="table-responsive">
@@ -560,6 +560,7 @@ export default {
 };
 </script>
 <style scoped>
+
 .driver-app-form {
   display: flex;
   flex-wrap: wrap;

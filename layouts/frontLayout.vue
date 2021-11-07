@@ -46,4 +46,12 @@ button:disabled:hover {
 .pending {
   pointer-events: none !important;
 }
+
+.logo img {
+  max-height: 72px;
+}
+
+.navbar-header {
+  padding-top: 0px;
+}
 </style>

@@ -11,14 +11,15 @@
               </div>
 
               <p>
-                Subscribe to our newsletter and we will inform you about newest
-                projects and promotions.
+                crivez-vous à notre newsletter pour recevoir les dernières
+                nouvelles sur l'emailing. Notre communication mensuelle vous
+                informera des dernières améliorations
               </p>
 
               <br />
 
               <form class="newsletter">
-                <input class="email" type="email" placeholder="Your email..." />
+                <input class="email" type="email" placeholder="Votre email..." />
                 <input type="submit" class="submit" value="" />
               </form>
             </li>
@@ -30,25 +31,13 @@
             <!-- .widget-pages start -->
             <li class="widget widget_pages">
               <div class="title">
-                <h3>quick links</h3>
+                <h3>Liens rapides</h3>
               </div>
 
               <ul>
-                <li><a href="about01.html">About us</a></li>
-                <li><a href="company-history.html">Company history</a></li>
-                <li><a href="events.html">Company Events</a></li>
-                <li>
-                  <a href="supply-chain-management.html"
-                    >Supply chain management</a
-                  >
-                </li>
-                <li><a href="warehousing.html">Warehousing</a></li>
-                <li><a href="news-standard.html">Company news</a></li>
-                <li>
-                  <a href="driver-application.html"
-                    >Online driver application</a
-                  >
-                </li>
+                <li><a href="about01.html">A propos</a></li>
+                <li><a href="company-history.html">Services</a></li>
+                <li><a href="events.html">Articles</a></li>
               </ul>
             </li>
             <!-- .widget-pages end -->
@@ -59,18 +48,18 @@
             <!-- .widget-pages start -->
             <li class="widget widget_pages">
               <div class="title">
-                <h3>Industry solutions</h3>
+                <h3>Informations pratiques</h3>
               </div>
 
               <ul>
                 <li>
                   <a href="overland-transportation.html"
-                    >Overland transportation</a
+                    >Termes et conditions</a
                   >
                 </li>
-                <li><a href="air-freight.html">Air freight</a></li>
-                <li><a href="ocean-freight.html">Ocean freight</a></li>
-                <li><a href="large-projects.html">Large projects</a></li>
+                <li><a href="air-freight.html">FAQ</a></li>
+                <li><a href="ocean-freight.html">Nous contacter</a></li>
+                <!-- <li><a href="large-projects.html">Large projects</a></li>
                 <li>
                   <a href="rail-transportation.html"
                     >Rail international shipping</a
@@ -79,7 +68,7 @@
                 <li>
                   <a href="contract-logistics.html">Contract logistics</a>
                 </li>
-                <li><a href="packaging-options.html">Packaging options</a></li>
+                <li><a href="packaging-options.html">Packaging options</a></li> -->
               </ul>
             </li>
             <!-- .widget-pages end -->
@@ -92,15 +81,12 @@
                 <h3>contact us</h3>
               </div>
 
-              <address>
-                123 Second Street Fifth Avenue, <br />
-                Manhattan, New York
-              </address>
+              <address>Douala, Bonanjo, <br /></address>
 
-              <span class="text-big"> +00 41 258 489 6587 </span>
+              <span class="text-big"> 690788316 / 672734445</span>
               <br />
 
-              <a href="mailto:">info@trucking.com</a>
+              <a href="mailto:">info@transnet.com</a>
               <br />
               <ul class="footer-social-icons">
                 <li><a href="#" class="fa fa-facebook"></a></li>
@@ -123,17 +109,17 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <p>TRUCKING 2015. All RIGHTS RESERVED.</p>
+            <p>TRANSNET 2021. TOUS DROITS RESERVES.</p>
           </div>
           <!-- .col-md-6 end -->
 
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <p class="align-right">
               DESIGNED AND DEVELOPED BY
               <a href="www.pixel-industry.html">PIXEL INDUSTRY.</a> ELITE
               AUTHOR.
             </p>
-          </div>
+          </div> -->
           <!-- .col-md-6 end -->
         </div>
         <!-- .row end -->
@@ -149,6 +135,6 @@
 
 <script>
 export default {
-    name:'FOOTER',
-}
+  name: "FOOTER",
+};
 </script>

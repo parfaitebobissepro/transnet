@@ -116,7 +116,7 @@
 #style-switcher .styles-list .color-default::after{
     width: 0;
     height: 0;
-    border-bottom: 35px solid #fac312; 
+    border-bottom: 35px solid #f5673d; 
     border-left: 35px solid transparent; 
     position: absolute;
     display: block;

@@ -6,18 +6,17 @@
         <div class="row">
           <div class="col-md-6">
             <div class="custom-heading">
-              <h3>your inquiry</h3>
+              <h3>QUI SOMMES-NOUS?</h3>
             </div>
             <!-- .custom-heading.left end -->
 
             <p>
-              Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy
-              fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over
-              the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red
-              vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A
-              wizard’s job is to vex chumps quickly in fog. Watch "Jeopardy!", Alex
-              Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz.
-              Brawny gods just.
+              Nous sommes TRANS-NET Sarl, une entreprise de prestation de
+              services(logistique, transport, douane, transit, transport urbain
+              VIP, tracking, publicité ) opérant dans plus de trois (03) pays de la
+              sous région Afrique centrale en général et en particulier au
+              cameroun, offrant une excellente expérience dans ces différents
+              domaines et secteurs d'activités.
             </p>
 
             <br />
@@ -93,7 +92,12 @@
               </fieldset>
 
               <!-- <input type="submit" class="wpcf7-submit" value="send" /> -->
-              <button class="wpcf7-submit" type="submit" style="color:#FFF" :class="submitStatus == 'PENDING' ? 'pending' : ''">
+              <button
+                class="wpcf7-submit"
+                type="submit"
+                style="color: #fff"
+                :class="submitStatus == 'PENDING' ? 'pending' : ''"
+              >
                 <pulse-loader
                   :color="colorLaoder"
                   :size="sizeLoader"
@@ -108,7 +112,7 @@
 
           <div class="col-md-6">
             <div class="custom-heading">
-              <h3>Trucking headquarters</h3>
+              <h3>Localiser Transnet</h3>
             </div>
             <!-- .custom-heading end -->
 
@@ -126,31 +130,35 @@
                 :key="location.id"
                 :position="{ lat: location.lat, lng: location.lng }"
                 :options="{
-                  icon: location === currentLocation ? pins.selected : pins.notSelected,
+                  icon:
+                    location === currentLocation
+                      ? pins.selected
+                      : pins.notSelected,
                 }"
                 @click="currentLocation = location"
               >
                 <GMapInfoWindow :options="{ maxWidth: 200 }">
-                  <code> lat: {{ location.lat }}, lng: {{ location.lng }} </code>
+                  <code>
+                    lat: {{ location.lat }}, lng: {{ location.lng }}
+                  </code>
                 </GMapInfoWindow>
               </GMapMarker>
               <GMapCircle :options="circleOptions" />
             </GMap>
 
             <div class="custom-heading">
-              <h4>company information</h4>
+              <h4>INFORMATIONS SUR L'ENTREPRISE</h4>
             </div>
             <!-- .custom-heading end -->
 
             <address>
-              123 Second Street Fifth Avenue, <br />
-              Manhattan, New York
+              Douala, Bonanjo<br />
             </address>
 
-            <span class="text-big colored"> +00 41 258 489 6587 </span>
+            <span class="text-big colored"> 690788316 / 672734445 / 696902778 </span>
             <br />
 
-            <a href="mailto:">info@trucking.com</a>
+            <a href="mailto:">info@transnet.com</a>
           </div>
           <!-- .col-md-6 end -->
         </div>
@@ -209,8 +217,7 @@ export default {
       mapStyle: [],
       clusterStyle: [
         {
-          url:
-            "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png",
+          url: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png",
           width: 56,
           height: 56,
           textColor: "#fff",
@@ -235,8 +242,8 @@ export default {
       //   data.append("lang", this.$i18n.locale);
       console.log(data);
       for (let [key, value] of data) {
-  console.log(`${key}: ${value}`)
-}
+        console.log(`${key}: ${value}`);
+      }
       let response = await this.$store.dispatch("frontoffice/contactApi", data);
       console.log(response);
       if (response.type == null) {
@@ -255,7 +262,7 @@ export default {
 };
 </script>
 <style>
-.wpcf7-submit span{
-  color:#FFF;
+.wpcf7-submit span {
+  color: #fff;
 }
 </style>
