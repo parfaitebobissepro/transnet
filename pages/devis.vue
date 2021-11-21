@@ -81,17 +81,7 @@
                 />
               </fieldset>
 
-              <!-- <fieldset>
-                <label><span class="required">*</span> Distance:</label>
-
-                <input
-                  type="number"
-                  class="wpcf7-text"
-                  id="driver-date-birth"
-                  placeholder="0"
-                  min="0"
-                />
-              </fieldset> -->
+     
               <fieldset class="fieldset-target" style="width: 100%">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -194,45 +184,7 @@
                   :min-len="1"
                 ></v-autocomplete>
               </fieldset>
-              <!-- 
-                            <fieldset>
-                                <label><span class="required">*</span> You are:</label>
 
-                                <select class="wpcf7-select" id="driver-type">
-                                    <option value="Owner">Owner</option>
-                                    <option value="Company driver">Company driver</option>
-                                </select>
-                            </fieldset>
-
-                            <fieldset>
-                                <label><span class="required">*</span> Driver's license date issued:</label>
-
-                                <input class="wpcf7-text" id="driver-licence-period">
-                            </fieldset>
-
-                            <fieldset>
-                                <label><span class="required">*</span> Type of driver's licence:</label>
-
-                                <input class="wpcf7-text" id="driver-licence-type">
-                            </fieldset>
-
-                            <fieldset>
-                                <label><span class="required">*</span> Your phone number:</label>
-
-                                <input class="wpcf7-text" id="driver-phone">
-                            </fieldset>
-
-                            <fieldset>
-                                <label><span class="required">*</span> Your cell number:</label>
-
-                                <input class="wpcf7-text" id="driver-cell">
-                            </fieldset>
-
-                            <fieldset>
-                                <label><span class="required">*</span> Years of experience:</label>
-
-                                <input class="wpcf7-text" id="driver-experience" placeholder="Minimum 3...">
-                            </fieldset> -->
 
               <fieldset>
                 <h5 v-if="distance == 0">0 Km</h5>
@@ -286,15 +238,7 @@
                     <span v-if="submitStatus != 'PENDING'">Payer</span>
                   </button>
                 </div>
-                <!-- <div style="text-align: center">
-                    
-                    <pulse-loader
-                    :color="'#000'"
-                    :size="'400'"
-                    v-if="submitStatus == 'PENDING'"
 
-                    ></pulse-loader>
-                </div> -->
               </modal>
             </form>
             <div>
