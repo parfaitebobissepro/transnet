@@ -9,7 +9,7 @@
             <div class="sidebar-profile clearfix">
               <div class="profile-img">
                 <img
-                  src="/img/unsplash/avatar-01.jpg"
+                  src="/img/unsplash/avatar-01.png"
                   alt="profile"
                 />
               </div>
@@ -61,13 +61,13 @@
                 >
               </NuxtLink>
             </li>
-            <li>
+            <li v-if="user.type == 'client'">
               <NuxtLink :to="'/dashboard/client/devis'">
                 <i class="material-icons">assignment</i>
                 <span>Devis</span>
               </NuxtLink>
             </li>
-            <li>
+            <li v-if="user.type == 'client'">
               <NuxtLink :to="'/dashboard/client/paiement'">
                 <i class="menu-icon ti-bookmark-alt"></i>
                 <span>Paiements</span>
@@ -79,12 +79,12 @@
                 <span>Historique</span>
               </NuxtLink>
             </li>
-            <li>
+            <!-- <li>
               <NuxtLink :to="'/dashboard/client/statisques'">
                 <i class="material-icons">school</i>
                 <span>Statistiques</span>
               </NuxtLink>
-            </li>
+            </li> -->
           </template>
           <!-- <li>
             <NuxtLink :to="'/'">

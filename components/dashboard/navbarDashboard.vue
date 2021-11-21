@@ -137,7 +137,7 @@
           <li class="dropdown user_profile">
             <div class="dropdown-toggle" data-toggle="dropdown">
               <img
-                :src="'/img/unsplash/avatar-01.jpg'"
+                :src="'/img/unsplash/avatar-01.png'"
                 alt="user"
               />
             </div>
@@ -240,5 +240,9 @@ export default {
 
 .ls-closed .bars:before{
   top: 20px;
+}
+
+.navbar-nav .user_profile .dropdown-toggle{
+  padding: 10px;
 }
 </style>

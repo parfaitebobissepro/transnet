@@ -81,7 +81,7 @@
             style="text-align: center; display: flex; justify-content: center"
           >
             <NuxtLink
-              :to="'/dashboard/client/devis'"
+              :to="''"
               class="
                 btn-hover btn-border-radius
                 color-6

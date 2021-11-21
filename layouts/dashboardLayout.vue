@@ -237,4 +237,9 @@ export default {
 .col-1 {
   padding: 12px;
 }
+
+.theme-black .nav > li > a{
+  display: none;
+}
+
 </style>
