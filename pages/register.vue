@@ -13,7 +13,7 @@
               >
                 <span class="login100-form-avatar">
                   <img src="img/images.png" alt="AVATAR" />
-                </span>
+                </span> 
                 <div
                   class="wrap-input100 validate-input m-t-50"
                   data-validate="Entrer le nom d'utilisateur"
