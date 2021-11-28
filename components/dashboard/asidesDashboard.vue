@@ -42,7 +42,7 @@
                 style="positio: relative">
                 <i class="menu-icon ti-comments"></i>
                 <span>Messagerie</span>
-                <span
+                <!-- <span
                   style="
                     color: white;
                     padding: 0px 9px;
@@ -58,7 +58,7 @@
                     display: flex;
                   "
                   >5</span
-                >
+                > -->
               </NuxtLink>
             </li>
             <li>

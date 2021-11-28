@@ -1,6 +1,7 @@
 export const state = () => ({
   isLoggedIn: false,
   user: {},
+  new_message_count: 0,
 });
 
 export const mutations = {
@@ -9,6 +10,9 @@ export const mutations = {
   },
   setUser(state, payload) {
     state.user = payload;
+  },
+  setNewMessage(state, payload) {
+      state.new_message_count = payload;
   },
 };
 
@@ -60,6 +64,71 @@ export const actions = {
     } catch (error) {
       return error;
     }
+  },
+  getMessage({ commit }, payload){
+      console.log(payload);
+      const cookieLog = this.$cookies.get('new_message', { parseJSON: true });
+      var total = 0;
+      if (cookieLog != undefined) {
+          // console.log("premier tour");
+          total = cookieLog.nbre;
+          const cookieParams = {
+              nbre: total,
+          };
+          this.$cookies.set('new_message', cookieParams, {
+              path: '/',
+              maxAge: 60 * 60 * 24 * 7
+          });
+      }else{
+          // console.log("deuxieme tour");
+          const cookieParams = {
+              nbre: 0,
+          };
+          this.$cookies.set('new_message', cookieParams, {
+              path: '/',
+              maxAge: 60 * 60 * 24 * 7
+          });
+      }
+      commit('setNewMessage', total);
+  },
+
+  newMessage({ commit }, payload){
+      console.log(payload);
+      const cookieLog = this.$cookies.get('new_message', { parseJSON: true });
+      var total = 0;
+      if (payload == 1) {
+          console.log(cookieLog);
+          if (cookieLog != undefined) {
+              console.log("premier tour");
+              total = cookieLog.nbre + 1;
+              const cookieParams = {
+                  nbre: total,
+              };
+              this.$cookies.set('new_message', cookieParams, {
+                  path: '/',
+                  maxAge: 60 * 60 * 24 * 7
+              });
+          }else{
+              console.log("deuxieme tour");
+              const cookieParams = {
+                  nbre: 0,
+              };
+              this.$cookies.set('new_message', cookieParams, {
+                  path: '/',
+                  maxAge: 60 * 60 * 24 * 7
+              });
+          }
+      } else {
+          const cookieParams = {
+              nbre: total,
+          };
+          this.$cookies.set('new_message', cookieParams, {
+              path: '/',
+              maxAge: 60 * 60 * 24 * 7
+          });
+      }
+      console.log(total);
+      commit('setNewMessage', total);
   },
 
   setAuthStatus({ commit, state }, payload) {

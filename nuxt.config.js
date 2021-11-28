@@ -80,6 +80,7 @@ export default {
   plugins: [
     { src: '~/plugins/appmin.js', ssr: false },
     { src: '~/plugins/mesFonctions/index.js', ssr: false },
+    { src: '~/plugins/chat', ssr: false },
     // { src: '~/plugins/admin.js', ssr: false },
     // { src: '~/plugins/app.min.js', ssr: false },
   ],
@@ -115,6 +116,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.BASE_URL || 'https://transnet-admin.herokuapp.com',
+    // baseURL: process.env.BASE_URL || 'https://transnet-admin.herokuapp.com',
+    baseURL: process.env.BASE_URL || 'http://localhost:7001',
   }
 }

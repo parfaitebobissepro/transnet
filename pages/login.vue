@@ -177,15 +177,13 @@ export default {
       const response = await this.$store.dispatch("auth/login", data);
       console.log("login result", response);
       this.submitStatus = "OK";
-
+      console.log(response.type);
       if (response.type == null) {
         this.$mesFonctions.toaster({
           message: "Une erreur est survenue",
           type: "error",
         });
       } else {
-          console.log(response.type);
-          console.log(this.$mesFonctions);
         this.$mesFonctions.toaster({
           message: response.message,
           type: response.type,

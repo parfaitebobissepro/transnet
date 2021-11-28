@@ -39,6 +39,8 @@
 <script>
 import NavbarDashboard from "../components/dashboard/navbarDashboard";
 import AsidesDashboard from "../components/dashboard/asidesDashboard";
+import Notify from "~/components/notify";
+import { mapState } from "vuex";
 
 
 export default {
@@ -46,6 +48,13 @@ export default {
   components: {
     NavbarDashboard,
     AsidesDashboard,
+    Notify
+  },
+  computed: {
+    ...mapState({
+      user: state => state.auth.user,
+      isLoggedIn: state => state.auth.isLoggedIn
+    })
   },
   head: {
     title: "Dashboard",
@@ -100,13 +109,12 @@ export default {
   },
 
   async created() {
-    console.log("created");
     const cookieLog = this.$cookies.get("auth", { parseJSON: true });
     console.log(cookieLog);
     if (cookieLog) {
       if (cookieLog.isLoggedIn) {
         // console.log(cookieLog.user);
-        // this.$socket.emit("login", { userId: cookieLog.user._id });
+        this.$socket.emit("login", { userId: cookieLog.user._id });
         let payload = {
           isLoggedIn: cookieLog.isLoggedIn,
           user: cookieLog.user
@@ -128,6 +136,25 @@ export default {
       document.body.appendChild(script2);
     }, 4000);
   },
+  sockets: {
+    new_message: async function(data) {
+      var notif_data = JSON.parse(data);
+      console.log(notif_data);
+      console.log(this.user);
+      if (notif_data.to._id == this.user._id) {
+        await this.$store.dispatch("auth/newMessage", 1);
+        var message =
+          notif_data.from.name +
+          " : " +
+          notif_data.message.substring(0, 25) +
+          "...";
+        this.$mesFonctions.toaster({
+          message: message,
+          type: "info",
+        });
+      }
+    }
+  }
 };
 </script>
 <style>
